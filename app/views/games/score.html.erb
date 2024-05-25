@@ -1,0 +1,7 @@
+<div class="container">
+  <h1 class="mt-5">Game result :</h1>
+  <div class="alert <%= @result_message.include?("valide") ? "alert-success" : "alert-danger" %>" role="alert">
+    <%= @result_message %>
+  </div>
+  <%= link_to "play again", new_path, class: "btn btn-primary mt-3" %>
+</div>

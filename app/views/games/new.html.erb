@@ -1,0 +1,21 @@
+<h1 class="text-center my-4"> New game </h1>
+
+<p class="text-center"> Your random letters :</p>
+<div class="d-flex justify-content-center flex-wrap">
+  <% @letters.each do |letter| %>
+    <div class="letter-box d-flex justify-content-center align-items-center m-2">
+      <%= letter %>
+    </div>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-center my-4">
+  <%= form_tag(score_path, method: :post, data: { turbo: false }) do %>
+    <div class="form-group">
+      <%= label_tag :word, "Your word suggestion:" %>
+      <%= text_field_tag :word, nil, class: 'form-control', required: true %>
+    </div>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
